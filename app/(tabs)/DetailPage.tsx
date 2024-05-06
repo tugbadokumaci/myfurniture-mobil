@@ -56,72 +56,83 @@ const DetailPage = () => {
   };
   if (product?.ProductStatus == true) {
     stockIcon = 'https://i.pngimg.me/thumb/f/720/m2i8N4d3K9Z5i8N4.jpg';
-    stockText = 'In Stock';
+    stockText = 'Stokta Mevcut Ürün';
     stockColor = '#2FCD71';
   } else {
     stockIcon = 'https://cdn-icons-png.freepik.com/256/6711/6711656.png?semt=ais_hybrid';
-    stockText = 'Out of Stock';
+    stockText = 'Stokta Mevcut Depil';
   }
 
 
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
+      <Text style={styles.productName}>{product?.ProductName}</Text>
+
       <Image
         source={{ uri: product?.ProductImage }}
         style={styles.productImage}
       />
-      <Text style={styles.productName}>{product?.ProductName}</Text>
 
-      <Text style={styles.productDescription}>{product?.ProductDescription}</Text>
-      <View style={styles.stockContainer}>
-        <Text style={styles.stockText}>{stockText}</Text>
-        <Image
-          source={{ uri: 'https://cdn-icons-png.freepik.com/256/11380/11380143.png?semt=ais_hybrid' }}
-          style={styles.stockIcon}
-        />
-      </View>
 
-      <Text style={styles.productPrice}>Starting from ${product?.ProductPrice}</Text>
-      <Image
-        source={{ uri: 'https://www.my-furniture.com/media/wysiwyg/asseen/kbbmag-logo.jpg' }}
-        style={{ height: 76, width: 190, marginVertical: 20 }}
-      />
-      <Text style={{ fontWeight: 'bold', fontSize: 20, color: '#737D7E', marginBottom: 15 }}>Services we offer for delievery:</Text>
-      <View style={styles.servicesContainer}>
-        <Image
-          source={{ uri: 'https://www.my-furniture.com/static/version1710221583/frontend/DesignSolutions/mf/en_GB/DesignSolutions_DeliveryReturns/images/paypal-credit-icon.png' }}
-          style={styles.stockIcon}
-        />
-        <Text style={styles.servicesText}>Request Video Call</Text>
-      </View>
-      <View style={styles.servicesContainer}>
-        <Image
-          source={{ uri: 'https://www.my-furniture.com/static/version1710221583/frontend/DesignSolutions/mf/en_GB/DesignSolutions_DeliveryReturns/images/video.png' }}
-          style={styles.stockIcon}
-        />
-        <Text style={styles.servicesText}>Free UK Delivery</Text>
-      </View>
-      <View style={styles.servicesContainer}>
-        <Image
-          source={{ uri: 'https://www.my-furniture.com/static/version1710221583/frontend/DesignSolutions/mf/en_GB/DesignSolutions_DeliveryReturns/images/time.jpg' }}
-          style={styles.stockIcon}
-        />
-        <Text style={styles.servicesText}>Delivery: 3-6 working days</Text>
-      </View>
-      <View style={styles.servicesContainer}>
-        <Image
-          source={{ uri: 'https://www.my-furniture.com/static/version1710221583/frontend/DesignSolutions/mf/en_GB/DesignSolutions_DeliveryReturns/images/truck.jpg' }}
-          style={styles.stockIcon}
-        />
-        <Text style={styles.servicesText}>Request Video Call</Text>
-      </View>
-      <View style={styles.servicesContainer}>
-        <Image
-          source={{ uri: 'https://www.my-furniture.com/static/version1710221583/frontend/DesignSolutions/mf/en_GB/DesignSolutions_DeliveryReturns/images/delivery.jpg' }}
-          style={styles.stockIcon}
-        />
-        <Text style={styles.servicesText}>Returns & Refunds</Text>
+      <View style={styles.stockLeftContainer}>
+
+        <Text style={styles.productPrice}>Ürün Fiyatı: {product?.ProductPrice} TL </Text>
+
+        <Text style={styles.productDescription}>Ürün Açıklaması: {product?.ProductDescription}</Text>
+        <View style={styles.stockContainer}>
+          <Image
+            source={{ uri: 'https://cdn-icons-png.freepik.com/256/11380/11380143.png?semt=ais_hybrid' }}
+            style={styles.stockIcon}
+          />
+          <Text style={styles.stockText}>{stockText}</Text>
+
+        </View>
+
+        <Text style={{ fontWeight: 'bold', fontSize: 20, color: '#737D7E', marginBottom: 15 }}>Sunduğumuz İmkanlar: </Text>
+        <View style={styles.servicesContainer}>
+          <Image
+            source={{ uri: 'https://www.my-furniture.com/static/version1710221583/frontend/DesignSolutions/mf/en_GB/DesignSolutions_DeliveryReturns/images/paypal-credit-icon.png' }}
+            style={styles.stockIcon}
+          />
+          <Text style={styles.servicesText}>Video Görüşme Desteği</Text>
+        </View>
+        <View style={styles.servicesContainer}>
+          <Image
+            source={{ uri: 'https://www.my-furniture.com/static/version1710221583/frontend/DesignSolutions/mf/en_GB/DesignSolutions_DeliveryReturns/images/video.png' }}
+            style={styles.stockIcon}
+          />
+          <Text style={styles.servicesText}>Türkiye içerisinde Ücetsiz Teslimat Desteği</Text>
+        </View>
+        <View style={styles.servicesContainer}>
+          <Image
+            source={{ uri: 'https://www.my-furniture.com/static/version1710221583/frontend/DesignSolutions/mf/en_GB/DesignSolutions_DeliveryReturns/images/time.jpg' }}
+            style={styles.stockIcon}
+          />
+          <Text style={styles.servicesText}>Planlanan Teslimat : 30 Mayıs-06 Haziran</Text>
+        </View>
+        <View style={styles.servicesContainer}>
+          <Image
+            source={{ uri: 'https://www.my-furniture.com/static/version1710221583/frontend/DesignSolutions/mf/en_GB/DesignSolutions_DeliveryReturns/images/truck.jpg' }}
+            style={styles.stockIcon}
+          />
+          <Text style={styles.servicesText}>Request Video Call</Text>
+        </View>
+        <View style={styles.servicesContainer}>
+          <Image
+            source={{ uri: 'https://www.my-furniture.com/static/version1710221583/frontend/DesignSolutions/mf/en_GB/DesignSolutions_DeliveryReturns/images/delivery.jpg' }}
+            style={styles.stockIcon}
+          />
+          <Text style={styles.servicesText}>Returns & Refunds</Text>
+        </View>
+        <View style={{ flexDirection: 'row', alignItems: 'flex-end', }}>
+          <Text style={styles.footerDescription}>My Furniture Bir     </Text>
+          <Image
+            source={{ uri: 'https://www.my-furniture.com/media/wysiwyg/asseen/kbbmag-logo.jpg' }}
+            style={{ height: 55, width: 150, marginVertical: 15 }}
+          />
+          <Text style={styles.footerDescription}>   kuruluşudur.</Text>
+        </View>
       </View>
 
     </ScrollView>
@@ -130,14 +141,19 @@ const DetailPage = () => {
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
-    justifyContent: 'center',
+    // justifyContent: 'center',
     paddingHorizontal: 20,
     color: '#fff'
   },
   stockContainer: {
     flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 10,
+    marginBottom: 20,
+  },
+  stockLeftContainer: {
+    alignItems: 'flex-start',
+    // justifyContent: 'center',
+    paddingHorizontal: 20,
+    color: '#fff'
   },
   servicesContainer: {
     flexDirection: 'row',
@@ -166,7 +182,8 @@ const styles = StyleSheet.create({
   productName: {
     fontSize: 24,
     fontWeight: 'bold',
-    marginBottom: 10,
+    marginBottom: 30,
+    marginTop: 10,
   },
   productPrice: {
     fontSize: 24,
@@ -176,13 +193,17 @@ const styles = StyleSheet.create({
   },
   productDescription: {
     fontSize: 18,
+    marginBottom: 10,
+  },
+  footerDescription: {
+    fontSize: 15,
     textAlign: 'center',
     marginBottom: 10,
   },
   stockIcon: {
     width: 40,
     height: 40,
-    marginLeft: 20,
+    marginRight: 20,
   },
 });
 export default DetailPage;
