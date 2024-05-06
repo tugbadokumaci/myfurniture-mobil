@@ -96,6 +96,10 @@ export default function TabOneScreen() {
           />
         ))}
       </View>
+      <View style={[styles.leftcontainer, { paddingLeft: 20, }]}>
+        <Text style={styles.TitleText}>Popüler Ürünler</Text>
+      </View>
+
       <View style={styles.separator} />
       <EditScreenInfo path="app/(tabs)/index.tsx" />
     </View>
@@ -105,8 +109,14 @@ export default function TabOneScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    // alignItems: 'center',
+    // justifyContent: 'center',
+  },
+  leftcontainer: {
+    flex: 1,
+    alignItems: 'flex-start',
+    justifyContent: 'flex-start',
+    textAlign: 'left',
   },
   carousel: {
     marginVertical: 10,
@@ -131,6 +141,12 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 18,
     fontWeight: 'bold'
+  },
+  TitleText: {
+    color: '#000',
+    fontSize: 24,
+    fontWeight: 'bold',
+    textAlign: 'left'
   },
   dotView: {
     flexDirection: 'row',

@@ -36,9 +36,21 @@ app.get('/categories', (req, res) => {
     });
 });
 
-app.get('/categories/:categoryId/products', (req, res) => {
+app.get('/categories/:categoryId', (req, res) => {
     const categoryId = parseInt(req.params.categoryId);
     connection.query(`SELECT * FROM Products where CategoryID = ${categoryId}`, function (error, results, fields) {
+        if (error) {
+            console.error("Error fetching products:", error);
+            res.status(500).json({ error: 'Internal server error' });
+        } else {
+            res.json(results);
+        }
+    });
+});
+
+app.get('/products/:productId', (req, res) => {
+    const productId = parseInt(req.params.productId);
+    connection.query(`SELECT * FROM Products where ProductID = ${productId}`, function (error, results, fields) {
         if (error) {
             console.error("Error fetching products:", error);
             res.status(500).json({ error: 'Internal server error' });
